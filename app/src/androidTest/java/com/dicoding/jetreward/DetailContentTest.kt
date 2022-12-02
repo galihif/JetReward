@@ -50,8 +50,9 @@ class DetailContentTest {
     @Test
     fun increaseProduct_buttonEnabled() {
         composeTestRule.onNodeWithContentDescription("Order Button").assertIsNotEnabled()
-        composeTestRule.onNodeWithText(composeTestRule.activity.getString(R.string.plus_symbol))
-            .performClick()
+//        composeTestRule.onNodeWithText(composeTestRule.activity.getString(R.string.plus_symbol))
+//            .performClick()
+        composeTestRule.onNodeWithStringId(R.string.plus_symbol).performClick()
         composeTestRule.onNodeWithContentDescription("Order Button").assertIsEnabled()
     }
 }
