@@ -60,4 +60,16 @@ class JetRewardAppTest {
         composeTestRule.onNodeWithContentDescription(composeTestRule.activity.getString(R.string.back)).performClick()
         navController.assertCurrentRouteName(Screen.Home.route)
     }
+
+    @Test
+    fun navHost_checkout_rightBackStack() {
+        composeTestRule.onNodeWithText(FakeRewardDataSource.dummyRewards[4].title).performClick()
+        navController.assertCurrentRouteName(Screen.DetailReward.route)
+        composeTestRule.onNodeWithStringId(R.string.plus_symbol).performClick()
+        composeTestRule.onNodeWithContentDescription("Order Button").performClick()
+        navController.assertCurrentRouteName(Screen.Cart.route)
+        composeTestRule.onNodeWithStringId(R.string.menu_home).performClick()
+        navController.assertCurrentRouteName(Screen.Home.route)
+    }
+
 }
